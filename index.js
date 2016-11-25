@@ -19,7 +19,7 @@ class MakeStory {
     this.option = option;
     this.input = input;
     return Promise.coroutine(function* () {
-      this.tempDir = yield this.tempDir();
+      this.tempDir = yield this.mkTempDir();
       yield this.genInputFiles();
       this.sortContent();
       yield this.writeFile(this.option);
@@ -27,7 +27,7 @@ class MakeStory {
     }.bind(this))();
   }
 
-  tempDir() {
+  mkTempDir() {
     return new Promise((resolve, reject) => {
       fs.mkdtemp('/tmp/makeStory_', (err, folder) => {
         if (err) {
