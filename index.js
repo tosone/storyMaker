@@ -12,10 +12,10 @@ const config = require('./config');
 class MakeStory {
   constructor() {
     this.config = config;
-    this.manifestFileContent = [];
   }
 
   init(input, option) {
+    this.manifestFileContent = [];
     this.option = option;
     this.input = input;
     return Promise.coroutine(function* () {
